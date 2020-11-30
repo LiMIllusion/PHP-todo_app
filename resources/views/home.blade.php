@@ -47,15 +47,17 @@
     <div class="row px-3">
         <h1 class="h4">Ciao {{Auth::user()->name}}, ecco le tue cose da fare</h1>
     </div>
-    <form action="">        
+    <form>  
         <div class="row">
             <div class="form-group col-sm">
+                        <label for="type">Ordina per:</label>
                         <select class="form-control" name="type" id="type" required onChange = "this.form.submit();">
                             <option value="priority" {{$type == "priority" ? 'selected':''}}>Priorità</option>
                             <option value="created_at" {{$type == "created_at" ? 'selected':''}}>Data di aggiunta</option>
                         </select>
             </div>
             <div class="form-group col-sm">
+                <label for="order">In ordine:</label>
                         <select class="form-control" name="order" id="order" required onChange = "this.form.submit();">
                             <option value="DESC" {{$order == "DESC" ? 'selected':''}}>Decrescente</option>
                             <option value="ASC" {{$order == "ASC" ? 'selected':''}}>Crescente</option>

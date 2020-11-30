@@ -36,6 +36,9 @@ class HomeController extends Controller
         }else{
             $order = "DESC";
         }
+        /*
+            La lista è "ordinata" anche sulla colonna "completed" in modo da avere le task completate sempre in fondo
+        */ 
         $todos = User::find(Auth::id())->todos()->orderBy('completed', 'ASC')->orderBy($type, $order)->get();
         return view('home', compact('todos', 'type', 'order'));
     }
